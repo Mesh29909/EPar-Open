@@ -1,1 +1,9 @@
-<p>page-not-found works!</p>
+<div class="not-found-container">
+  <mat-icon class="not-found-icon">error_outline</mat-icon>
+  <h1>{{ 'notFound.title' | translate }}</h1>
+  <p>{{ 'notFound.message' | translate }} <strong>{{ path }}</strong></p>
+  <button mat-raised-button color="primary" (click)="goToHome()">
+    <mat-icon>home</mat-icon>
+    {{ 'notFound.returnHome' | translate }}
+  </button>
+</div>

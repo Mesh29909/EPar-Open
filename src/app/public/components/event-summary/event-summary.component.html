@@ -1,1 +1,26 @@
-<p>event-summary works!</p>
+<div class="container">
+  <mat-card class="not-found-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>{{ 'PAGE_NOT_FOUND.TITLE' | translate }}</h1>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="not-found-icon">
+        <mat-icon aria-hidden="true">error_outline</mat-icon>
+        <span class="status-code">404</span>
+      </div>
+
+      <p>{{ 'PAGE_NOT_FOUND.MESSAGE' | translate }}</p>
+      <p>{{ 'pageNotFound.message' | translate}}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/home">
+        <mat-icon>home</mat-icon>
+        {{ 'PAGE_NOT_FOUND.RETURN_HOME' | translate }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

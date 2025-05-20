@@ -1,0 +1,68 @@
+.ticket-validation-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ticket-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.spinner-button {
+  margin: 0 auto;
+}
+
+.validation-message {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.check-in-info {
+  margin-top: 24px;
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.info-value {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .info-row {
+    flex-direction: row;
+  }
+
+  .info-label {
+    width: 200px;
+    margin-bottom: 0;
+  }
+}

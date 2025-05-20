@@ -1,0 +1,42 @@
+.fixed-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .logo {
+    height: 32px;
+    width: auto;
+    border-radius: 4px;
+  }
+
+  .iso-text {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+
+.toolbar-links {
+  display: flex;
+  gap: 8px;
+
+  .active-link {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.language-selector {
+  .mat-button-toggle-group {
+    height: 30px;
+  }
+}

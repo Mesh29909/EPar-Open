@@ -1,1 +1,22 @@
-<p>app-toolbar works!</p>
+<mat-toolbar color="primary" class="fixed-toolbar">
+  <div class="logo-container">
+    <img [src]="logoUrl" alt="Eventify Logo" class="logo" />
+    <span class="iso-text">ISO 27001:2022 certified</span>
+  </div>
+
+  <div class="toolbar-links">
+    <a mat-button routerLink="/home" routerLinkActive="active-link">
+      {{ 'nav.home' | translate }}
+    </a>
+    <a mat-button routerLink="/registration/event-check-ins/new" routerLinkActive="active-link">
+      {{ 'nav.checkIn' | translate }}
+    </a>
+  </div>
+
+  <div class="language-selector">
+    <mat-button-toggle-group [value]="getCurrentLanguage()">
+      <mat-button-toggle value="en" (click)="switchLanguage('en')" aria-label="English">EN</mat-button-toggle>
+      <mat-button-toggle value="es" (click)="switchLanguage('es')" aria-label="Español">ES</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+</mat-toolbar>

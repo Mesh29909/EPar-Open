@@ -1,0 +1,40 @@
+{
+  "appName": "Eventify",
+  "certification": "Certificado ISO 27001:2022",
+  "nav": {
+    "home": "Inicio",
+    "checkIn": "Registro"
+  },
+  "home": {
+    "title": "Inicio",
+    "welcome": "Bienvenido a Eventify",
+    "registeredEvents": "Eventos Registrados"
+  },
+  "eventSummary": {
+    "registeredAttendees": "Asistentes Registrados",
+    "attendancePercentage": "% de Asistencia"
+  },
+  "checkIn": {
+    "title": "Registro de Evento",
+    "ticketValidation": {
+      "title": "Validación de Ticket",
+      "ticketIdentifier": "Identificador de Ticket",
+      "checkInButton": "Registrar",
+      "invalidTicket": "Identificador de Ticket Inválido",
+      "alreadyCheckedIn": "Ya Registrado"
+    },
+    "attendeeDetails": {
+      "eventId": "ID de Evento",
+      "eventName": "Nombre del Evento",
+      "eventDescription": "Descripción del Evento",
+      "attendeeFirstName": "Nombre del Asistente",
+      "attendeeLastName": "Apellido del Asistente",
+      "checkedInAt": "Registrado En"
+    }
+  },
+  "pageNotFound": {
+    "title": "Página No Encontrada",
+    "message": "La página {route} que estás buscando no existe.",
+    "returnHome": "Volver al Inicio"
+  }
+}

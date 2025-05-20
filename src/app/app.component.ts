@@ -1,12 +1,41 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {MatToolbar, MatToolbarRow} from '@angular/material/toolbar';
+import {MatAnchor} from '@angular/material/button';
+import {AppToolbarComponent} from './shared/components/app-toolbar/app-toolbar.component';
 
+/**
+ * Root component of the application.
+ * Provides the main layout and navigation for the app.
+ */
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [MatToolbar, MatToolbarRow, MatAnchor, RouterLink, RouterLinkActive, TranslatePipe, RouterOutlet, AppToolbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'EPar-Open';
+  /**
+   * Title of the application.
+   */
+  title = 'learning-center';
+
+  /**
+   * Navigation options for the toolbar.
+   */
+  options = [
+    { link: '/home', label: 'home' },
+    { link: '/about', label: 'about' },
+    { link: '/learning/courses', label: 'courses' },
+  ];
+
+  /**
+   * Initializes the translation service with the default language.
+   * @param translate Instance of TranslateService for managing translations.
+   */
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
 }

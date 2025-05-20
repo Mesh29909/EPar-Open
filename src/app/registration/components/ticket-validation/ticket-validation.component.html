@@ -1,1 +1,73 @@
-<p>ticket-validation works!</p>
+<mat-card class="ticket-validation-card">
+  <mat-card-header>
+    <mat-card-title>{{ 'CHECK_IN.TICKET_VALIDATION' | translate }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form #ticketForm="ngForm" (ngSubmit)="validateTicket()" class="ticket-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'CHECK_IN.TICKET_IDENTIFIER' | translate }}</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="ticketIdentifier"
+          name="ticketIdentifier"
+          required
+          [disabled]="isLoading"
+          aria-required="true"
+        >
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="isLoading || !ticketForm.valid"
+      >
+        <span *ngIf="!isLoading">{{ 'CHECK_IN.VALIDATE_BUTTON' | translate }}</span>
+        <mat-spinner *ngIf="isLoading" diameter="24" class="spinner-button"></mat-spinner>
+      </button>
+    </form>
+
+    <div *ngIf="validationMessage" class="validation-message"
+         [class.error-message]="validationMessage !== 'success'">
+      <ng-container *ngIf="validationMessage === 'invalid'">
+        {{ 'CHECK_IN.INVALID_TICKET' | translate }}
+      </ng-container>
+      <ng-container *ngIf="validationMessage === 'already-checked-in'">
+        {{ 'CHECK_IN.ALREADY_CHECKED_IN' | translate }}
+      </ng-container>
+    </div>
+
+    <div *ngIf="validationMessage === 'success' && attendee && event" class="check-in-info">
+      <mat-divider></mat-divider>
+
+      <div class="info-grid">
+        <div class="info-row">
+          <div class="info-label">{{ 'CHECK_IN.EVENT_ID' | translate }}</div>
+          <div class="info-value">{{ event.id }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">{{ 'CHECK_IN.EVENT_NAME' | translate }}</div>
+          <div class="info-value">{{ event.name }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">{{ 'CHECK_IN.EVENT_DESCRIPTION' | translate }}</div>
+          <div class="info-value">{{ event.description }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">{{ 'CHECK_IN.ATTENDEE_FIRST_NAME' | translate }}</div>
+          <div class="info-value">{{ attendee.firstName }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">{{ 'CHECK_IN.ATTENDEE_LAST_NAME' | translate }}</div>
+          <div class="info-value">{{ attendee.lastName }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">{{ 'CHECK_IN.CHECKED_IN_AT' | translate }}</div>
+          <div class="info-value">{{ attendee.checkedInAt | date:'medium' }}</div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
